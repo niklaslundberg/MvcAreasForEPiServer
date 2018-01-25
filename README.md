@@ -1,6 +1,8 @@
 # Asp.Net Mvc Areas for EPiServer
 Add Asp.Net Mvc areas support for EPiServer project
 
+This project is based on Valdis Iljuconoks' [Project](https://github.com/valdisiljuconoks/MvcAreasForEPiServer)
+
 ## Getting Started
 
 ```

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<package>
+  <metadata>
+    <id>Arbor.EPiServer.MvcAreas</id>
+    <version>$version$</version>
+    <title>Arbor.EPiServer.MvcAreas</title>
+    <authors>https://github.com/valdisiljuconoks, Niklas Lundberg</authors>
+    <owners>https://github.com/valdisiljuconoks, Niklas Lundberg</owners>
+    <licenseUrl>https://github.com/niklaslundberg/MvcAreasForEPiServer/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/niklaslundberg/MvcAreasForEPiServer</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>MVC area support for EPiServer</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>EPiServer Asp.Net Mvc Areas MvcAreas FeatureFolders FeatureAreas CMS</tags>
+    <dependencies>
+      <dependency id="EPiServer.CMS.AspNet" version="[11.3.2, 12.0.0)" />
+      <dependency id="EPiServer.Framework.AspNet" version="[11.3.2, 12.0.0)" />
+      <dependency id="Microsoft.AspNet.Mvc" version="[5.2.3, 6.0.0)" />
+    </dependencies>
+  </metadata>
+</package>

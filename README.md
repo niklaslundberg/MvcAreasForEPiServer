@@ -4,7 +4,7 @@ Add Asp.Net Mvc areas support for EPiServer project
 ## Getting Started
 
 ```
-PM> Install-Package MvcAreasForEPiServer
+PM> Install-Package Arbor.EPiServer.MvcAreas
 ```
 
 After you installed this NuGet package, you will need to kick off area registration (usually this could be done in `Global.asax.cs`)
@@ -30,7 +30,6 @@ If you want to disable Mvc Area detection by controller, you can choose configur
 
 ```
 [InitializableModule]
-[ModuleDependency(typeof(EPiServer.Web.InitializationModule))]
 public class ConfigureAreasSupportModule : IInitializableModule
 {
     public void Initialize(InitializationEngine context)
@@ -56,5 +55,4 @@ There are two configuration settings:
 
 ## More info
 [General description](http://blog.tech-fellow.net/2015/01/21/full-support-for-asp-net-mvc-areas-in-episerver-7-5/)<br/>
-How to use Mvc Areas as [EPiServer's](http://episerver.com) [site discriminators](http://blog.tech-fellow.net/2015/08/10/asp-net-mvc-areas-in-episerver-part-2/)<br/>
 Asp.Net Mvc Area support in EPiServer - [part 2](http://blog.tech-fellow.net/2015/08/10/asp-net-mvc-areas-in-episerver-part-2/)

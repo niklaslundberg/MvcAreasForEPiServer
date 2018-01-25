@@ -7,20 +7,20 @@ namespace Arbor.EPiServer.MvcAreas
 {
     internal class TypeAttributeHelper
     {
-        public static IEnumerable<Type> GetTypesChildOf<T>()
+        public static IEnumerable<Type> GetTypesChildOf<T>(Assembly[] assemblies)
         {
+            if (assemblies == null)
+            {
+                throw new ArgumentNullException(nameof(assemblies));
+            }
+
             var allTypes = new List<Type>();
-            foreach (Assembly assembly in GetAssemblies())
+            foreach (Assembly assembly in assemblies)
             {
                 allTypes.AddRange(GetTypesChildOfInAssembly(typeof(T), assembly));
             }
 
             return allTypes;
-        }
-
-        private static IEnumerable<Assembly> GetAssemblies()
-        {
-            return AppDomain.CurrentDomain.GetAssemblies();
         }
 
         private static IEnumerable<Type> GetTypesChildOfInAssembly(Type type, Assembly assembly)

@@ -1,26 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web.Mvc;
+using EPiServer.Configuration;
 
 namespace Arbor.EPiServer.MvcAreas
 {
     public static class AreaConfiguration
     {
-        public static AreaConfigurationSettings Settings { get; } = new AreaConfigurationSettings();
+        public static readonly AreaConfigurationSettings Settings = new AreaConfigurationSettings();
 
-        public static void RegisterAllAreas(Action<AreaConfigurationSettings> configuration)
+        public static void RegisterAllAreas(Action<AreaConfigurationSettings> configuration, Assembly[] assemblies)
         {
             configuration(Settings);
 
-            RegisterAllAreas();
+            RegisterAllAreas(assemblies);
         }
 
-        public static void RegisterAllAreas()
+        public static void RegisterAllAreas(Assembly[] assemblies)
         {
+            if (assemblies == null)
+            {
+                throw new ArgumentNullException(nameof(assemblies));
+            }
+
             AreaRegistration.RegisterAllAreas();
 
-            IEnumerable<Type> areas = TypeAttributeHelper.GetTypesChildOf<AreaRegistration>();
+            IEnumerable<Type> areas = TypeAttributeHelper.GetTypesChildOf<AreaRegistration>(assemblies);
 
             foreach (Type area in areas)
             {
@@ -32,7 +39,7 @@ namespace Arbor.EPiServer.MvcAreas
                     continue;
                 }
 
-                IEnumerable<Type> controllersInArea = TypeAttributeHelper.GetTypesChildOf<Controller>()
+                IEnumerable<Type> controllersInArea = TypeAttributeHelper.GetTypesChildOf<Controller>(assemblies)
                     .Where(t => t.Namespace != null && t.Namespace.StartsWith(ns, StringComparison.OrdinalIgnoreCase));
                 controllersInArea.ToList()
                     .ForEach(t => AreaTable.RegisterController(t.FullName, areaRegistration.AreaName));

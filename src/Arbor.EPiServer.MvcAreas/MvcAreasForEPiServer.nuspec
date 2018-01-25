@@ -7,7 +7,7 @@
     <title>Arbor.EPiServer.MvcAreas</title>
     <authors>https://github.com/valdisiljuconoks, Niklas Lundberg</authors>
     <owners>https://github.com/valdisiljuconoks, Niklas Lundberg</owners>
-    <licenseUrl>https://github.com/niklaslundberg/MvcAreasForEPiServer/blob/master/LICENSE</licenseUrl>
+    <licenseUrl>https://github.com/niklaslundberg/MvcAreasForEPiServer/blob/master/LICENSE.txt</licenseUrl>
     <projectUrl>https://github.com/niklaslundberg/MvcAreasForEPiServer</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>MVC area support for EPiServer</description>
@@ -20,4 +20,7 @@
       <dependency id="Microsoft.AspNet.Mvc" version="[5.2.3, 6.0.0)" />
     </dependencies>
   </metadata>
+  <files>
+    <file src="bin\$configuration$\net471\Arbor.EPiServer.MvcAreas.dll" target="lib\net471" />
+  </files>
 </package>

@@ -53,5 +53,9 @@ obj/
 Network Trash Folder
 Temporary Items
 .apdisk
+
 *.nupkg
 *ncrunch*
+temp
+Artifacts
+build
